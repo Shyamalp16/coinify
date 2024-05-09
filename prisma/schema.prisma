@@ -15,9 +15,42 @@ datasource db {
 }
 
 model User{
-    id String @id @default(uuid())
-    name String
-    email String @unique
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+  id         String         @id @default(uuid())
+  name       String
+  email      String         @unique
+  createdAt  DateTime       @default(now())
+  updatedAt  DateTime       @updatedAt
+  Portfolio Portfolio[]
 }
+
+
+model Portfolio{
+  id          String    @id @default(uuid())
+  name        String
+  description String    @db.Text
+  userId      String
+  User        User      @relation(fields: [userId], references: [id])
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  Asset Asset[]
+
+  @@index([userId])
+}
+
+
+model Asset{
+  id            String      @id @default(uuid())
+  name          String
+  purchaseDate  DateTime
+  purchasePrice Float
+  quantity      Float
+  currentValue  Float
+  
+  portfolioId   String
+  Portfolio     Portfolio?  @relation(fields: [portfolioId], references:[id])
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  @@index([portfolioId])
+}
+

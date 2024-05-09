@@ -1,3 +1,4 @@
+import Navigation from '@/components/site/navigation'
 import { getAuthUserDetails } from '@/lib/queries'
 import { currentUser } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
@@ -9,7 +10,9 @@ const Page = async () => {
 
   const user = await getAuthUserDetails()
   return (
-    <div>Agency Dashboard</div>
+    <>
+      <div>Dashboard</div>
+    </>
   )
 }
 

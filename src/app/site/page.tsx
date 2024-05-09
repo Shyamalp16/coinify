@@ -47,7 +47,7 @@ export default function Home() {
                 ))}
               </div>
               <Link
-                  href={`/agency?plan=${card.priceId}`}
+                  href={`/dashboard?plan=${card.priceId}`}
                   className={clsx(
                     'w-full text-center bg-primary p-2 rounded-md',
                     {
