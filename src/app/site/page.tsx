@@ -17,7 +17,7 @@ export default function Home() {
         </div>
         <div className="flex justify-center items-center relative md:mt-[-70px]"> 
           <Image  src={'/assets/preview.png'} alt='Banner image' height={900} width={1100} className="rounded-tl-2xl rounded-tr-2xl border-2 border-muted mt-20"/>
-          <div className="bottom-0 top-[50%] bg-gradient-to-t dark:from-background left-0 right-0 absolute z-10"></div>
+          <div className="bottom-0 top-[50%] bg-gradient-to-t dark:from-background left-0 right-0 absolute"></div>
         </div>
       </section>
       
